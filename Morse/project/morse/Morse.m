@@ -139,6 +139,26 @@
             ];
 }
 
+// Replace non-standard characters by standard.
++ (NSString *)replaceIllegalCharacters:(NSString *)string
+{
+    // Replace unsecable spaces.
+    NSString *replaced = [string stringByReplacingOccurrencesOfString:@" " withString:@" "];
+    
+    // Replace strange point.
+    replaced = [replaced stringByReplacingOccurrencesOfString:@"·" withString:@"."];
+    replaced = [replaced stringByReplacingOccurrencesOfString:@"•" withString:@"."];
+    
+    // Replace long dash by standard dash.
+    replaced = [replaced stringByReplacingOccurrencesOfString:@"−" withString:@"-"];
+    replaced = [replaced stringByReplacingOccurrencesOfString:@"—" withString:@"-"];
+    
+    return replaced;
+}
+
+#pragma mark -
+#pragma mark Public methods
+
 // Encode into Morse language.
 + (NSString *)morse:(NSString *)data
 {
@@ -150,8 +170,8 @@
     // Make all charaters upper.
     NSString *toTranslate = [data uppercaseString];
 
-    // Replace unsecable spaces.
-    toTranslate = [toTranslate stringByReplacingOccurrencesOfString:@" " withString:@" "];
+    // Replace illegal characters.
+    toTranslate = [Morse replaceIllegalCharacters:toTranslate];
     
     // Replace '.' and '-'
     toTranslate = [toTranslate stringByReplacingOccurrencesOfString:@"." withString:@"|.|"];
@@ -190,8 +210,11 @@
     // Make all charaters upper.
     NSString *toTranslate = [data uppercaseString];
     
-    // Replace unsecable spaces.
-    toTranslate = [toTranslate stringByReplacingOccurrencesOfString:@" " withString:@" "];
+    // Replace illegal characters.
+    toTranslate = [Morse replaceIllegalCharacters:toTranslate];
+    
+    // Add end space.
+    toTranslate = [toTranslate stringByAppendingString:@" "];
 
     // Replace '.' and '-'
     toTranslate = [toTranslate stringByReplacingOccurrencesOfString:@".-.-.- " withString:@"|.|"];
@@ -217,7 +240,7 @@
     // Replace '.' and '-'
     toTranslate = [toTranslate stringByReplacingOccurrencesOfString:@"|.|" withString:@"."];
     toTranslate = [toTranslate stringByReplacingOccurrencesOfString:@"|-|" withString:@"-"];
-    
+
     return toTranslate;
 }
 
