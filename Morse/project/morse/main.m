@@ -54,7 +54,7 @@ int main(int argc, const char * argv[])
                 {
                     printf("\n\r");
                     printf("Morse CLI: \n\r");
-                    printf("Version 1.0\n\r");
+                    printf("Version 1.1\n\r");
                     printf("\n\r");
                     exit(-1);
                 }
