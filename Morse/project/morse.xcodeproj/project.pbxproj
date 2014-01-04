@@ -12,6 +12,7 @@
 		02A3ED791832D0930056E5B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A3ED781832D0930056E5B9 /* main.m */; };
 		02A3ED7D1832D0930056E5B9 /* morse.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02A3ED7C1832D0930056E5B9 /* morse.1 */; };
 		02A3ED851832D2C10056E5B9 /* Morse.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A3ED841832D2C10056E5B9 /* Morse.m */; };
+		02BD67D518783ED700822C75 /* IOHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BD67D418783ED700822C75 /* IOHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,6 +37,8 @@
 		02A3ED7C1832D0930056E5B9 /* morse.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = morse.1; sourceTree = "<group>"; };
 		02A3ED831832D2C10056E5B9 /* Morse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Morse.h; sourceTree = "<group>"; };
 		02A3ED841832D2C10056E5B9 /* Morse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Morse.m; sourceTree = "<group>"; };
+		02BD67D318783ED700822C75 /* IOHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOHelper.h; sourceTree = "<group>"; };
+		02BD67D418783ED700822C75 /* IOHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,10 +84,12 @@
 			isa = PBXGroup;
 			children = (
 				02A3ED781832D0930056E5B9 /* main.m */,
-				02A3ED7C1832D0930056E5B9 /* morse.1 */,
-				02A3ED7A1832D0930056E5B9 /* Supporting Files */,
+				02BD67D318783ED700822C75 /* IOHelper.h */,
+				02BD67D418783ED700822C75 /* IOHelper.m */,
 				02A3ED831832D2C10056E5B9 /* Morse.h */,
 				02A3ED841832D2C10056E5B9 /* Morse.m */,
+				02A3ED7C1832D0930056E5B9 /* morse.1 */,
+				02A3ED7A1832D0930056E5B9 /* Supporting Files */,
 			);
 			path = morse;
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02BD67D518783ED700822C75 /* IOHelper.m in Sources */,
 				02A3ED851832D2C10056E5B9 /* Morse.m in Sources */,
 				02A3ED791832D0930056E5B9 /* main.m in Sources */,
 			);
