@@ -17,17 +17,18 @@ enum MorseOptions {
 
 class IOHelper {
     
-    class func lookForData() -> (String, MorseOptions[]) {
+    class func lookForData() -> (String, [MorseOptions]) {
         
-        var opts = MorseOptions[]()
+        var opts = [MorseOptions]()
         var lastOption = 0
         
         var arg: String
         var number: Int = 0
-        for i in 0..C_ARGC
+        
+        for i in 0...(Process.arguments.count - 1)
         {
             let index = Int(i)
-            arg = String.fromCString(C_ARGV[index])
+            arg = Process.arguments[index]
  
             if arg == "--usage" || arg == "-help" || arg == "-h"
             {
@@ -39,7 +40,7 @@ class IOHelper {
             }
             else if arg.hasPrefix("-")
             {
-                for char: Character in arg
+                for char: Character in arg.characters
                 {
                     if String(char) == "d"
                     {
@@ -70,14 +71,14 @@ class IOHelper {
         }
         
         // Look for a content.
-        var content = C_ARGV[lastIndex]
-        if content.hashValue == nil
+        var content = Process.arguments[lastIndex]
+        if content.isEmpty
         {
             IOHelper.exitOnError("Empty data")
         }
 
         // Last option cannot be empty.
-        arg = String.fromCString(content)
+        arg = String.fromCString(content)!
         if arg.isEmpty
         {
             IOHelper.exitOnError("Empty data")
@@ -88,41 +89,41 @@ class IOHelper {
     
     class func exitOnError(message: String)
     {
-        println("")
-        println("\(message)")
-        println("Use: 'morse -h' for help.")
-        println("")
+        print("")
+        print("\(message)")
+        print("Use: 'morse -h' for help.")
+        print("")
 
         exit(-1)
     }
     
     class func printHelp()
     {
-        println("")
-        println("Morse ©photograve 2013.")
-        println("This is a MacOSX command line.")
-        println("")
-        println("Use input parameters:")
-        println("    -d    to decode a Morse string (optional).")
-        println("    -v    Verbose mode (optional).")
-        println("    -c    Copy result into the general pastboard (optional).")
-        println("")
-        println("morse [-dvc] \"My string here\"")
-        println("")
-        println("--version          Get the program version.")
-        println("")
-        println("--usage | -help    To get this help.")
-        println("")
+        print("")
+        print("Morse ©photograve 2013.")
+        print("This is a MacOSX command line.")
+        print("")
+        print("Use input parameters:")
+        print("    -d    to decode a Morse string (optional).")
+        print("    -v    Verbose mode (optional).")
+        print("    -c    Copy result into the general pastboard (optional).")
+        print("")
+        print("morse [-dvc] \"My string here\"")
+        print("")
+        print("--version          Get the program version.")
+        print("")
+        print("--usage | -help    To get this help.")
+        print("")
         
         exit(-1)
     }
     
     class func printVersion()
     {
-        println("")
-        println("Morse CLI:")
-        println("Version 1.3")
-        println("")
+        print("")
+        print("Morse CLI:")
+        print("Version 1.3")
+        print("")
         
         exit(-1)
     }
