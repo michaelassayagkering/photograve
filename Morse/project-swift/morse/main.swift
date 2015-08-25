@@ -10,7 +10,7 @@ import Foundation
 import AppKit
 
 var data: String
-var opts: MorseOptions[]
+var opts: [MorseOptions]
 
 (data, opts) = IOHelper.lookForData()
 
@@ -22,7 +22,7 @@ if data.isEmpty
 
 // Morse computation.
 var out = "failure"
-if contains(opts, MorseOptions.Mode)
+if opts.contains(MorseOptions.Mode)
 {
     out = Morse.demorse(data)
 }
@@ -32,7 +32,7 @@ else
 }
 
 // Copy to MacOS pastboard.
-if contains(opts, MorseOptions.Pastboard)
+if opts.contains(MorseOptions.Pastboard)
 {
     let pasteboard = NSPasteboard.generalPasteboard()
     pasteboard.declareTypes([NSStringPboardType], owner: nil)
@@ -40,13 +40,13 @@ if contains(opts, MorseOptions.Pastboard)
 }
 
 // Output result.
-if contains(opts, MorseOptions.Verbose)
+if opts.contains(MorseOptions.Verbose)
 {
-    println("\n\nResult:\n\n\"\(out)\"\n\n")
+    print("\n\nResult:\n\n\"\(out)\"\n\n")
 }
 else
 {
-    println(out)
+    print(out)
 }
 
 exit(0)

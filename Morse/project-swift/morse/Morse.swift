@@ -115,7 +115,7 @@ class Morse {
         ]
     }
     
-    class func morsechars() -> String[] {
+    class func morsechars() -> [String] {
 
         return [
             // 1 morse char.
@@ -155,7 +155,7 @@ class Morse {
         replaced = replaced.stringByReplacingOccurrencesOfString("−", withString:"−")
         replaced = replaced.stringByReplacingOccurrencesOfString("−", withString:"-")
         
-        return replaced
+        return replaced as String
     }
 
     // Encode into Morse language.

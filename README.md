@@ -27,4 +27,8 @@ v1.2
 v1.3
 - Rewrite the project into Swift.
 
+v1.4
+- Move to OSX 10.10
+- Build with Swift 2.0
+
 ==========
