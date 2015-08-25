@@ -24,4 +24,11 @@ v1.1
 v1.2
 - Refactor input/output treatments.
 
+v1.3
+- Minor fix.
+
+v1.4
+- Move to OSX 10.10
+- Build with Swift 2.0
+
 ==========

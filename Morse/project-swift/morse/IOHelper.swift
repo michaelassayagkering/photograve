@@ -71,7 +71,7 @@ class IOHelper {
         }
         
         // Look for a content.
-        var content = Process.arguments[lastIndex]
+        let content = Process.arguments[lastIndex]
         if content.isEmpty
         {
             IOHelper.exitOnError("Empty data")
@@ -100,7 +100,8 @@ class IOHelper {
     class func printHelp()
     {
         print("")
-        print("Morse ©photograve 2013.")
+        print("Morse ©photograve 2015.")
+        print("http://photograve.fr")
         print("This is a MacOSX command line.")
         print("")
         print("Use input parameters:")
@@ -122,7 +123,7 @@ class IOHelper {
     {
         print("")
         print("Morse CLI:")
-        print("Version 1.3")
+        print("Version 1.4")
         print("")
         
         exit(-1)
