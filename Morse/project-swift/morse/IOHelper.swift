@@ -63,14 +63,14 @@ class IOHelper {
             number = Int(i)
         }
 
-        // Check ranges
+        // Check ranges.
         let lastIndex = Int(lastOption + 1)
         if number < lastIndex
         {
             IOHelper.exitOnError("Empty data")
         }
         
-        // Look for a content.
+        // Look for content.
         let content = Process.arguments[lastIndex]
         if content.isEmpty
         {
@@ -116,7 +116,7 @@ class IOHelper {
         print("--usage | -help    To get this help.")
         print("")
         
-        exit(-1)
+        exit(0)
     }
     
     class func printVersion()
@@ -126,6 +126,6 @@ class IOHelper {
         print("Version 1.4")
         print("")
         
-        exit(-1)
+        exit(0)
     }
 }
