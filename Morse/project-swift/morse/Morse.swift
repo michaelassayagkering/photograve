@@ -140,26 +140,26 @@ class Morse {
     }
     
     // Replace non-standard characters by standard.
-    class func replaceIllegalCharacters(toReplace: String) -> String {
+    class func replaceIllegalCharacters(_ toReplace: String) -> String {
         
-        var replaced: NSString = toReplace
+        var replaced: NSString = toReplace as NSString
 
         // Replace unsecable spaces.
-        replaced = replaced.stringByReplacingOccurrencesOfString(" ", withString:" ")
+        replaced = replaced.replacingOccurrences(of: " ", with:" ") as NSString
         
         // Replace strange point.
-        replaced = replaced.stringByReplacingOccurrencesOfString("·", withString:".")
-        replaced = replaced.stringByReplacingOccurrencesOfString("•", withString:".")
+        replaced = replaced.replacingOccurrences(of: "·", with:".") as NSString
+        replaced = replaced.replacingOccurrences(of: "•", with:".") as NSString
         
         // Replace long dash by standard dash.
-        replaced = replaced.stringByReplacingOccurrencesOfString("−", withString:"−")
-        replaced = replaced.stringByReplacingOccurrencesOfString("−", withString:"-")
+        replaced = replaced.replacingOccurrences(of: "−", with:"−") as NSString
+        replaced = replaced.replacingOccurrences(of: "−", with:"-") as NSString
         
         return replaced as String
     }
 
     // Encode into Morse language.
-    class func morse(data: String) -> String
+    class func morse(_ data: String) -> String
     {
         if data.isEmpty
         {
@@ -167,40 +167,42 @@ class Morse {
         }
         
         // Make all charaters upper.
-        var toTranslate = data.uppercaseString
+        var toTranslate = data.uppercased()
         
         // Replace illegal characters.
         toTranslate = Morse.replaceIllegalCharacters(toTranslate)
         
         // Replace '.' and '-'
-        toTranslate = toTranslate.stringByReplacingOccurrencesOfString(".", withString:"|.|")
-        toTranslate = toTranslate.stringByReplacingOccurrencesOfString("-", withString:"|-|")
-        toTranslate = toTranslate.stringByReplacingOccurrencesOfString("|.|", withString:".-.-.- ")
-        toTranslate = toTranslate.stringByReplacingOccurrencesOfString("|-|", withString:"-....- ")
+        toTranslate = toTranslate.replacingOccurrences(of: ".", with:"|.|")
+        toTranslate = toTranslate.replacingOccurrences(of: "-", with:"|-|")
+        toTranslate = toTranslate.replacingOccurrences(of: "|.|", with:".-.-.- ")
+        toTranslate = toTranslate.replacingOccurrences(of: "|-|", with:"-....- ")
         
         // Convert all other characters.
         let chars = Morse.chars()
         let morsechars = Morse.morsechars()
-        for var i = chars.count - 1 ; i >= 0; i--
+        
+        let i = chars.count - 1
+        for index in (0...i).reversed()
         {
-            if chars[i] == "."
+            if chars[index] == "."
             {
                 continue
             }
-            if chars[i] == "-"
+            if chars[index] == "-"
             {
                 continue
             }
             
-            let morsechar = morsechars[i] + " "
-            toTranslate = toTranslate.stringByReplacingOccurrencesOfString(chars[i] , withString: morsechar)
+            let morsechar = morsechars[index] + " "
+            toTranslate = toTranslate.replacingOccurrences(of: chars[index] , with: morsechar)
         }
         
         return toTranslate
     }
 
     // Decode from Morse language.
-    class func demorse(data: String) -> String
+    class func demorse(_ data: String) -> String
     {
         if data.isEmpty
         {
@@ -208,7 +210,7 @@ class Morse {
         }
         
         // Make all charaters upper.
-        var toTranslate = data.uppercaseString
+        var toTranslate = data.uppercased()
         
         // Replace illegal characters.
         toTranslate = Morse.replaceIllegalCharacters(toTranslate)
@@ -217,30 +219,31 @@ class Morse {
         toTranslate = toTranslate + " "
         
         // Replace '.' and '-'
-        toTranslate = toTranslate.stringByReplacingOccurrencesOfString(".-.-.- ", withString:"|.|")
-        toTranslate = toTranslate.stringByReplacingOccurrencesOfString("-....- ", withString:"|-|")
+        toTranslate = toTranslate.replacingOccurrences(of: ".-.-.- ", with:"|.|")
+        toTranslate = toTranslate.replacingOccurrences(of: "-....- ", with:"|-|")
         
         // Convert all other characters.
         let chars = Morse.chars()
         let morsechars = Morse.morsechars()
-        for var i = chars.count - 1 ; i >= 0; i--
+        let i = chars.count - 1
+        for index in (0...i).reversed()
         {
-            if chars[i] == "."
+            if chars[index] == "."
             {
                 continue
             }
-            if chars[i] == "-"
+            if chars[index] == "-"
             {
                 continue
             }
             
-            let morsechar = morsechars[i] + " "
-            toTranslate = toTranslate.stringByReplacingOccurrencesOfString(morsechar , withString: chars[i])
+            let morsechar = morsechars[index] + " "
+            toTranslate = toTranslate.replacingOccurrences(of: morsechar , with: chars[index])
         }
         
         // Replace '.' and '-'
-        toTranslate = toTranslate.stringByReplacingOccurrencesOfString("|.|", withString:".")
-        toTranslate = toTranslate.stringByReplacingOccurrencesOfString("|-|", withString:"-")
+        toTranslate = toTranslate.replacingOccurrences(of: "|.|", with:".")
+        toTranslate = toTranslate.replacingOccurrences(of: "|-|", with:"-")
         
         return toTranslate
     }

@@ -10,9 +10,9 @@ import Foundation
 
 enum MorseOptions {
     
-    case Mode
-    case Verbose
-    case Pastboard
+    case mode
+    case verbose
+    case pastboard
 }
 
 class IOHelper {
@@ -25,10 +25,10 @@ class IOHelper {
         var arg: String
         var number: Int = 0
         
-        for i in 0...(Process.arguments.count - 1)
+        for i in 0...(CommandLine.arguments.count - 1)
         {
             let index = Int(i)
-            arg = Process.arguments[index]
+            arg = CommandLine.arguments[index]
  
             if arg == "--usage" || arg == "-help" || arg == "-h"
             {
@@ -44,17 +44,17 @@ class IOHelper {
                 {
                     if String(char) == "d"
                     {
-                        opts.append(MorseOptions.Mode)
+                        opts.append(MorseOptions.mode)
                         lastOption = Int(i)
                     }
                     else if String(char) == "v"
                     {
-                        opts.append(MorseOptions.Verbose)
+                        opts.append(MorseOptions.verbose)
                         lastOption = Int(i)
                     }
                     else if String(char) == "c"
                     {
-                        opts.append(MorseOptions.Pastboard)
+                        opts.append(MorseOptions.pastboard)
                         lastOption = Int(i)
                     }
                 }
@@ -71,14 +71,14 @@ class IOHelper {
         }
         
         // Look for content.
-        let content = Process.arguments[lastIndex]
+        let content = CommandLine.arguments[lastIndex]
         if content.isEmpty
         {
             IOHelper.exitOnError("Empty data")
         }
 
         // Last option cannot be empty.
-        arg = String.fromCString(content)!
+        arg = String.init(validatingUTF8:content)!
         if arg.isEmpty
         {
             IOHelper.exitOnError("Empty data")
@@ -87,7 +87,7 @@ class IOHelper {
         return (arg, opts)
     }
     
-    class func exitOnError(message: String)
+    class func exitOnError(_ message: String)
     {
         print("")
         print("\(message)")
@@ -100,9 +100,9 @@ class IOHelper {
     class func printHelp()
     {
         print("")
-        print("Morse ©photograve 2015.")
+        print("Morse ©photograve 2016.")
         print("http://photograve.fr")
-        print("This is a MacOSX command line.")
+        print("This is a macOS command line.")
         print("")
         print("Use input parameters:")
         print("    -d    to decode a Morse string (optional).")
@@ -123,7 +123,7 @@ class IOHelper {
     {
         print("")
         print("Morse CLI:")
-        print("Version 1.4")
+        print("Version 1.5")
         print("")
         
         exit(0)

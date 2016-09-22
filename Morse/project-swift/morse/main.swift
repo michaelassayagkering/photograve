@@ -22,7 +22,7 @@ if data.isEmpty
 
 // Morse computation.
 var out = "failure"
-if opts.contains(MorseOptions.Mode)
+if opts.contains(MorseOptions.mode)
 {
     out = Morse.demorse(data)
 }
@@ -32,15 +32,15 @@ else
 }
 
 // Copy to MacOS pastboard.
-if opts.contains(MorseOptions.Pastboard)
+if opts.contains(MorseOptions.pastboard)
 {
-    let pasteboard = NSPasteboard.generalPasteboard()
+    let pasteboard = NSPasteboard.general()
     pasteboard.declareTypes([NSStringPboardType], owner: nil)
     pasteboard.setString(out, forType: NSStringPboardType)
 }
 
 // Output result.
-if opts.contains(MorseOptions.Verbose)
+if opts.contains(MorseOptions.verbose)
 {
     print("\n\nResult:\n\n\"\(out)\"\n\n")
 }
