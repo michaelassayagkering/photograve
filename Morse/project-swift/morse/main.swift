@@ -34,9 +34,9 @@ else
 // Copy to MacOS pastboard.
 if opts.contains(MorseOptions.pastboard)
 {
-    let pasteboard = NSPasteboard.general()
-    pasteboard.declareTypes([NSStringPboardType], owner: nil)
-    pasteboard.setString(out, forType: NSStringPboardType)
+    let pasteboard = NSPasteboard.general
+    pasteboard.declareTypes([NSPasteboard.PasteboardType.string], owner: nil)
+    pasteboard.setString(out, forType: NSPasteboard.PasteboardType.string)
 }
 
 // Output result.
