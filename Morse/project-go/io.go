@@ -15,7 +15,7 @@ type options struct {
 func getOptions(args []string) (options, string) {
 
 	opt := options{}
-	var lastOpt = 0
+	var lastOpt = -1
 
 	for index, arg := range args {
 		// Help asked.
@@ -41,9 +41,13 @@ func getOptions(args []string) (options, string) {
 
 	// Check ranges.
 	var lastIndex = lastOpt + 1
-	if len(args) <= lastIndex {
+	number := len(args)
+	if number <= lastOpt {
 		exitOnError("Empty data or invalid syntax")
 	}
+
+	fmt.Println(lastIndex)
+	fmt.Println(number)
 
 	// Look for content.
 	var content = args[lastIndex]
