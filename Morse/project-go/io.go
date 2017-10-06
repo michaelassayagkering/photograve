@@ -42,12 +42,9 @@ func getOptions(args []string) (options, string) {
 	// Check ranges.
 	var lastIndex = lastOpt + 1
 	number := len(args)
-	if number <= lastOpt {
+	if number <= lastIndex {
 		exitOnError("Empty data or invalid syntax")
 	}
-
-	fmt.Println(lastIndex)
-	fmt.Println(number)
 
 	// Look for content.
 	var content = args[lastIndex]
@@ -91,7 +88,7 @@ func printHelp() {
 func printVersion() {
 	fmt.Println("")
 	fmt.Println("Morse CLI:")
-	fmt.Println("Version 1.0")
+	fmt.Println("GO Version 1.0")
 	fmt.Println("")
 
 	os.Exit(0)
