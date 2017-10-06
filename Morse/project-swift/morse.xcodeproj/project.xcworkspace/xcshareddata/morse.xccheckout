@@ -10,29 +10,29 @@
 	<string>morse</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>182AC24B-78BD-484C-ACCA-BDE8AA0D6A76</key>
+		<key>D52F6580947E8A5D6DC87975A2D312E9A5F09DCE</key>
 		<string>https://github.com/Gabriel-Bremond/photograve.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Morse/project-swift/morse.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>182AC24B-78BD-484C-ACCA-BDE8AA0D6A76</key>
+		<key>D52F6580947E8A5D6DC87975A2D312E9A5F09DCE</key>
 		<string>../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/Gabriel-Bremond/photograve.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>182AC24B-78BD-484C-ACCA-BDE8AA0D6A76</string>
+	<string>D52F6580947E8A5D6DC87975A2D312E9A5F09DCE</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>182AC24B-78BD-484C-ACCA-BDE8AA0D6A76</string>
+			<string>D52F6580947E8A5D6DC87975A2D312E9A5F09DCE</string>
 			<key>IDESourceControlWCCName</key>
 			<string>photograve</string>
 		</dict>
