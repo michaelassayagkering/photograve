@@ -50,9 +50,11 @@ using command:
 
 `$ time ./morse[|swift|go] "[A huge text]" > dev/nul`
 
-Restults:
-|                | Real  | User  | Sys   |
-| -------------- | ----- | ----- | ----- |
-| 1/ Go          |  6ms  |  2ms  |  3ms  |
-| 2/ Objective-C | 20ms  | 10ms  |  5ms  |
-| 3/ Swift       | 22ms  | 12ms  |  6ms  |
+
+ Restults:      | Real  | User  | Sys   
+ -------------- | ----- | ----- | ----- 
+ 1/ Go          |  6ms  |  2ms  |  3ms  
+ 2/ Objective-C | 20ms  | 10ms  |  5ms  
+ 3/ Swift       | 22ms  | 12ms  |  6ms  
+
+
