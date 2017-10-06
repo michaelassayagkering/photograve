@@ -31,4 +31,9 @@ v1.4
 - Move to OSX 10.10
 - Build with Swift 2.0
 
+v1.5
+- Move to OSX 10.13
+- Build with Swift 4.0
+- Make GO version
+
 ==========
